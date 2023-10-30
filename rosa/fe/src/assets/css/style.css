@@ -1,0 +1,194 @@
+@import url('./reset.css');
+@import url('./fonts.css');
+
+/* layouts */
+#board {
+}
+#board-view {
+}
+#board-create {
+}
+#board-edit {
+}
+
+/* container */
+.container {
+  margin: 0 auto;
+  width: 1200px;
+  /* background: rgba(0, 0, 0, 0.3); */
+}
+
+/* row */
+.row {
+  padding: 0 24px;
+}
+
+/* message-box */
+.message-box {
+  margin: 100px auto;
+  padding: 60px 60px 140px;
+  width: 40%;
+  border: 2px solid #000;
+}
+.message-box strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 30px;
+}
+
+/* btn */
+.btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.btn--black {
+  color: #fff;
+  background-color: #000;
+}
+.btn--white {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+/* page */
+.page-tit {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.page-desc {
+  margin-bottom: 50px;
+  font-size: 22px;
+}
+
+/* board-form */
+.board-form > div {
+  margin-bottom: 20px;
+}
+.board-form label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.board-form label::before {
+  content: '*';
+  position: absolute;
+  right: -8px;
+  top: 0;
+  color: red;
+}
+.board-form .message--error {
+  margin-left: 14px;
+  color: red;
+  font-size: 11px;
+}
+.board-form input,
+.board-form textarea {
+  padding: 10px 14px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.board-form textarea {
+  height: 400px;
+  resize: none;
+}
+
+/* board */
+.board {
+  padding: 80px 0;
+}
+.board .action {
+  margin-bottom: 16px;
+  text-align: right;
+}
+.board table {
+  width: 100%;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  font-size: 14px;
+}
+.board table th,
+.board table td {
+  padding: 16px 0;
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+.board table th {
+  background-color: #ddd;
+  font-weight: 400;
+}
+.board table tr:hover {
+  background-color: #eee;
+}
+
+/* board-view */
+.board-view {
+  padding: 80px 0;
+}
+.board-view table {
+  width: 100%;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  font-size: 14px;
+}
+.board-view table th,
+.board-view table td {
+  padding: 16px 0;
+  border-bottom: 1px solid #000;
+}
+.board-view table th {
+  text-align: center;
+  background-color: #eee;
+  font-weight: 400;
+}
+.board-view table td {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.board-view table td.content {
+  height: 400px;
+  vertical-align: top;
+}
+.board-view .btns {
+  margin-top: 20px;
+  text-align: right;
+}
+.board-view .btns .btn:not(:first-child) {
+  margin-left: 5px;
+}
+
+/* board-create */
+.board-create {
+  padding: 80px 0;
+}
+.board-create .btns {
+  text-align: right;
+}
+.board-create .btns .btn {
+  margin-right: 5px;
+}
+
+/* board-edit */
+.board-edit {
+  padding: 80px 0;
+}
+.board-edit .btns {
+  text-align: right;
+}
+.board-edit .btns .btn {
+  margin-left: 5px;
+}
+
+/* media query */
+@media (max-width: 1220px) {
+  /* container */
+  .container {
+    width: 100%;
+  }
+}
