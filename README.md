@@ -14,3 +14,10 @@
 * 개발용
 * 프로덕션용
 
+## 1주차
+* 도커 환경에서 개발 (fe - ts, bff - python, log - java, board - node, db - mysql)
+    * 로컬용 컴포즈 파일 작성
+* 애플리케이션 개발
+    * Fe에서 BFF로 호출하도록 endpoint 변경
+    * BFF 생성 > Backend for Frontend > python > CRUD
+    * 로그 서비스 생성 > java
