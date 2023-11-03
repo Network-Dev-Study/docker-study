@@ -4,7 +4,7 @@ export default class BaseService {
   private baseUrl: string;
 
   constructor() {
-    this.baseUrl = 'http://localhost:4000';
+    this.baseUrl = 'http://localhost:4100';
   }
 
   protected config: AxiosRequestConfig = {
