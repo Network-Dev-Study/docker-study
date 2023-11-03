@@ -9,10 +9,10 @@ class DBConnectionFactory {
   public async getConnection(): Promise<mysql.PoolConnection> {
     const options: mysql.PoolOptions = {
       host: 'localhost',
-      port: 3306,
+      port: 33068,
       user: 'root',
-      password: 'localmysql1234',
-      database: 'rosa',
+      password: '1234',
+      database: 'woogie',
       waitForConnections: true,
       connectionLimit: 5,
       multipleStatements: true,
