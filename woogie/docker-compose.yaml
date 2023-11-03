@@ -1,29 +1,23 @@
-# Use root as user credentials
 version: '3.1'
 
 services:
-
   mysql:
-    image: mysql:5.7
-    restart: always
+    image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: localmysql1234
-      # MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: woogie
+    restart: always
     ports:
-      - 3306:3306
+      - "33068:3306"
     command:
       [
         "mysqld",
         "--character-set-server=utf8mb4",
-        "--collation-server=utf8mb4_bin",
+        "--collation-server=utf8mb4_bin"
       ]
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+    volumes:
+      - ./be/src/mysql/init:/docker-entrypoint-initdb.d
 
 networks:
   default:
-    name: mysql
+    name: docker-study
