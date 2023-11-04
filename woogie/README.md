@@ -16,5 +16,5 @@
 ➜ python -m virtualenv env --python=python3.9
 ➜ . env/bin/activate
 ➜ pip install -r requirements.txt
-➜ python main.py
+➜ python app.py
 ```
