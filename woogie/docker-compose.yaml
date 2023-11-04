@@ -17,7 +17,16 @@ services:
     volumes:
       - ./bff:/app
 
+  be:
+    build:
+      dockerfile: ./Dockerfile.be-dev
+    volumes:
+      - ./be:/app
+    ports:
+      - 4000:4000
+
   mysql:
+    container_name: mysql
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: 1234
@@ -32,7 +41,7 @@ services:
         "--collation-server=utf8mb4_bin"
       ]
     volumes:
-      - ./be/src/mysql/init:/docker-entrypoint-initdb.d
+      - ./mysql/init:/docker-entrypoint-initdb.d
 
 networks:
   default:

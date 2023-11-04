@@ -1,0 +1,3 @@
+CREATE USER 'local_test'@'%' IDENTIFIED BY '1234';
+FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON woogie.* TO local_test@'%';
