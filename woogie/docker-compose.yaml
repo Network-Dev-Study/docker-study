@@ -9,6 +9,14 @@ services:
     volumes:
       - ./fe:/app  # 로컬 소스 코드 디렉토리와 컨테이너 내부의 /app 디렉토리를 공유
 
+  bff:
+    build:
+      dockerfile: ./Dockerfile.bff-dev
+    ports:
+      - "4100:5000"
+    volumes:
+      - ./bff:/app
+
   mysql:
     image: mysql:latest
     environment:
