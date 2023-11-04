@@ -16,5 +16,5 @@
 ➜ python -m virtualenv env --python=python3.9
 ➜ . env/bin/activate
 ➜ pip install -r requirements.txt
-➜ python app.py
+➜ flask run --host=0.0.0.0 --port=4100
 ```

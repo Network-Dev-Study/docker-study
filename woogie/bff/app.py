@@ -48,4 +48,4 @@ def boardDetail(id):
             return "ERROR", 500
 
 if __name__ == "__main__":
-    app.run(debug=True, port=4100)
+    app.run(debug=True)
