@@ -15,7 +15,8 @@ server.setConfig((app) => {
 });
 
 const app = server.build();
+const port = 4002;
 
-app.listen(4000, () => {
-  console.log('✅ Listening on: http://localhost:4000');
+app.listen(port, () => {
+  console.log(`✅ Listening on: http://localhost:${port}`);
 });
