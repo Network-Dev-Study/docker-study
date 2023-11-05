@@ -6,6 +6,7 @@ services:
   mysql:
     image: mysql:5.7
     restart: always
+    platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: localmysql1234
       # MYSQL_USER: root
