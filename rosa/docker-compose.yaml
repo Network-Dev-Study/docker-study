@@ -2,7 +2,6 @@
 version: '3.1'
 
 services:
-
   mysql:
     image: mysql:5.7
     restart: always
@@ -18,13 +17,53 @@ services:
         "--character-set-server=utf8mb4",
         "--collation-server=utf8mb4_bin",
       ]
+    networks:
+      - default
 
-  adminer:
-    image: adminer
-    restart: always
+  bff:
+    build:
+      context: ./bff
+      dockerfile: Dockerfile
     ports:
-      - 8080:8080
+      - 4000:4000
+    # volumes:
+    #   - ./bff:/app
+    networks:
+      - default
+
+  logger:
+    build:
+      context: ./logger
+      dockerfile: Dockerfile
+    ports:
+      - 4001:4001
+    # volumes:
+    #   - ./logger:/app
+    networks:
+      - default
+
+  be:
+    build:
+      context: ./be
+      dockerfile: Dockerfile
+    ports:
+      - 4002:4002
+    # volumes:
+    #   - ./be:/app
+    networks:
+      - default
+
+  fe:
+    build:
+      context: ./fe
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    # volumes:
+    #   - ./fe:/app
+    networks:
+      - default
 
 networks:
   default:
-    name: mysql
+    name: default_net
