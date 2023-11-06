@@ -1,0 +1,95 @@
+/* 여백 초기화 */
+body,
+div,
+ul,
+li,
+dl,
+dt,
+dd,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+select,
+table,
+th,
+tr,
+td,
+figure,
+figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+/* 폰트 초기화 */
+body,
+input,
+textarea,
+button,
+select,
+table {
+  line-height: 1.5;
+  color: #222;
+  font-family: 'NEXONLv1Gothic', AppleSDGothicNeo-Regular, 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
+}
+
+/* 제목 초기화 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+/* a 링크 초기화 */
+a {
+  color: #222;
+  text-decoration: none;
+}
+a:hover {
+  color: #390;
+}
+
+/* 목록 초기화 */
+ol,
+ul {
+  list-style: none;
+}
+
+/* 스타일 초기화 */
+strong {
+  font-weight: normal;
+}
+em {
+  font-style: normal;
+}
+img {
+  width: 100%;
+  vertical-align: top;
+}
+fieldset {
+  border: 0 none;
+}
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* 테이블 초기화 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
