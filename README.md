@@ -15,9 +15,17 @@
 * 프로덕션용
 
 ## 1주차
+
 * 도커 환경에서 개발 (fe - ts, bff - python, log - java, board - node, db - mysql)
     * 로컬용 컴포즈 파일 작성
 * 애플리케이션 개발
     * Fe에서 BFF로 호출하도록 endpoint 변경
     * BFF 생성 > Backend for Frontend > python > CRUD
     * 로그 서비스 생성 > java
+
+## 2주차
+
+* 서비스 명칭 통일
+* 로그 포맷 정하기
+* docker-compose 개발, 운영 나누기
+* 이미지 최적화
