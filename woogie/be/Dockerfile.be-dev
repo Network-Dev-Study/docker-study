@@ -6,12 +6,12 @@ ENV NODE_ENV development
 WORKDIR /app
 
 # 앱 종속성 설치
-COPY ./be/package*.json .
+COPY ./package*.json .
 RUN npm install
 RUN npm install -g ts-node
 
 # 앱 소스 코드 복사
-COPY ./be .
+COPY . .
 
 # 컨테이너를 실행할 때 사용할 명령 설정
 CMD ["npm", "start"]

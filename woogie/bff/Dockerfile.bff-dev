@@ -6,13 +6,13 @@ ENV FLASK_ENV=development
 WORKDIR /app
 
 # Copy the requirements file into the container
-COPY ./bff/requirements.txt .
+COPY ./requirements.txt .
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
 # Copy the current directory contents into the container at /app
-COPY ./bff .
+COPY . .
 
 # Command to run your application
 CMD ["flask", "run", "--host=0.0.0.0", "--debug"]

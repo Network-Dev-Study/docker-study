@@ -6,11 +6,11 @@ ENV NODE_ENV development
 WORKDIR /app
 
 # 앱 종속성 설치
-COPY ./fe/package*.json .
+COPY ./package*.json .
 RUN npm install
 
 # 앱 소스 코드 복사
-COPY ./fe .
+COPY . .
 
 # 컨테이너를 실행할 때 사용할 명령 설정
 CMD ["npm", "start"]
