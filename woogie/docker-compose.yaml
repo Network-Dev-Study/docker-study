@@ -4,7 +4,7 @@ services:
   fe:
     build:
       context: ./fe
-      dockerfile: ./Dockerfile.fe-dev  # React 앱을 빌드할 Dockerfile
+      dockerfile: ./Dockerfile  # React 앱을 빌드할 Dockerfile
     ports:
       - "3000:3000"  # React 개발 서버의 포트
     volumes:
@@ -13,7 +13,7 @@ services:
   bff:
     build:
       context: ./bff
-      dockerfile: ./Dockerfile.bff-dev
+      dockerfile: ./Dockerfile
     ports:
       - "4100:5000"
     volumes:
@@ -22,7 +22,7 @@ services:
   be:
     build:
       context: ./be
-      dockerfile: ./Dockerfile.be-dev
+      dockerfile: ./Dockerfile
     volumes:
       - ./be:/app
     ports:
@@ -31,7 +31,7 @@ services:
   logger:
     build:
       context: ./logger
-      dockerfile: ./Dockerfile.logger-dev # Spring Boot 앱의 Dockerfile
+      dockerfile: ./Dockerfile # Spring Boot 앱의 Dockerfile
     ports:
       - "4200:8080" # 호스트 포트와 컨테이너 포트 매핑
     environment:
