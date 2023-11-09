@@ -19,7 +19,7 @@ def board():
         else:
             return "ERROR", 500
     elif request.method == "POST":
-        requests.post("http://logging:8080/board/log", json.dumps({ "logContent" : json.dumps(request.get_json()) }), headers={ "Content-Type": "application/json" })
+        requests.post("http://logger:8080/board/log", json.dumps({ "logContent" : json.dumps(request.get_json()) }), headers={ "Content-Type": "application/json" })
         board_response = requests.post("http://be:4000/board", request.get_json())
         if board_response.status_code == 200:
             return board_response.json(), 200

@@ -5,7 +5,7 @@ FROM maven:3.8.4-openjdk-17 AS builder
 WORKDIR /app
 
 # 프로젝트 파일 복사
-COPY ./logging .
+COPY ./logger .
 
 # Maven을 사용하여 애플리케이션 빌드
 RUN mvn clean package

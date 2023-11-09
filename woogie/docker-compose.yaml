@@ -25,9 +25,9 @@ services:
     ports:
       - 4000:4000
 
-  logging:
+  logger:
     build:
-      dockerfile: ./Dockerfile.logging-dev # Spring Boot 앱의 Dockerfile
+      dockerfile: ./Dockerfile.logger-dev # Spring Boot 앱의 Dockerfile
     ports:
       - "4200:8080" # 호스트 포트와 컨테이너 포트 매핑
     environment:
