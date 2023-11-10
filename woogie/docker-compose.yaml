@@ -9,6 +9,8 @@ services:
       - "3000:3000"  # React 개발 서버의 포트
     volumes:
       - ./fe-web:/app  # 로컬 소스 코드 디렉토리와 컨테이너 내부의 /app 디렉토리를 공유
+    environment:
+      - NODE_ENV=development
 
   be-for-frontend:
     build:
@@ -18,6 +20,8 @@ services:
       - "4100:5000"
     volumes:
       - ./be-for-frontend:/app
+    environment:
+      - FLASK_ENV=development
 
   be-board:
     build:
@@ -27,6 +31,8 @@ services:
       - ./be-board:/app
     ports:
       - 4000:4000
+    environment:
+      - NODE_ENV=development
 
   be-logger:
     build:

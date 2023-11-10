@@ -1,6 +1,8 @@
 # Base image
 FROM python:3.9
-ENV FLASK_ENV=development
+
+# Command to run your application
+CMD ["flask", "run", "--host=0.0.0.0", "--debug"]
 
 # Set the working directory in the container
 WORKDIR /app
@@ -13,6 +15,3 @@ RUN pip install -r requirements.txt
 
 # Copy the current directory contents into the container at /app
 COPY . .
-
-# Command to run your application
-CMD ["flask", "run", "--host=0.0.0.0", "--debug"]
