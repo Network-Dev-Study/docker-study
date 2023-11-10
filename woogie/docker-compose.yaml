@@ -1,36 +1,36 @@
 version: '3.1'
 
 services:
-  fe:
+  fe-web:
     build:
-      context: ./fe
+      context: ./fe-web
       dockerfile: ./Dockerfile  # React 앱을 빌드할 Dockerfile
     ports:
       - "3000:3000"  # React 개발 서버의 포트
     volumes:
-      - ./fe:/app  # 로컬 소스 코드 디렉토리와 컨테이너 내부의 /app 디렉토리를 공유
+      - ./fe-web:/app  # 로컬 소스 코드 디렉토리와 컨테이너 내부의 /app 디렉토리를 공유
 
-  bff:
+  be-for-frontend:
     build:
-      context: ./bff
+      context: ./be-for-frontend
       dockerfile: ./Dockerfile
     ports:
       - "4100:5000"
     volumes:
-      - ./bff:/app
+      - ./be-for-frontend:/app
 
-  be:
+  be-board:
     build:
-      context: ./be
+      context: ./be-board
       dockerfile: ./Dockerfile
     volumes:
-      - ./be:/app
+      - ./be-board:/app
     ports:
       - 4000:4000
 
-  logger:
+  be-logger:
     build:
-      context: ./logger
+      context: ./be-logger
       dockerfile: ./Dockerfile # Spring Boot 앱의 Dockerfile
     ports:
       - "4200:8080" # 호스트 포트와 컨테이너 포트 매핑
