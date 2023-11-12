@@ -66,6 +66,8 @@ services:
       - 3000:3000
     # volumes:
     #   - ./fe-web:/app
+    env_file:
+      - ./fe-web/.env
     networks:
       - default
 
