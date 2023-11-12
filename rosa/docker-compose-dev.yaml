@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  mysql:
+
+  be-for-frontend:
+    command: ["npm", "run", "start"]
+
+  be-logger:
+
+  be-board:
+    command: ["npm", "run", "start:dev"]
+
+  fe-web:
+
+networks:
+  default:
+    name: default_net
