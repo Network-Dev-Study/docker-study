@@ -16,6 +16,8 @@ services:
         "--character-set-server=utf8mb4",
         "--collation-server=utf8mb4_bin",
       ]
+    volumes:
+      - ./mysql/init:/docker-entrypoint-initdb.d
     networks:
       - default
 
