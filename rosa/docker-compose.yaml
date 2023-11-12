@@ -27,8 +27,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 4000:4000
-    # volumes:
-    #   - ./be-for-frontend:/app
+    volumes:
+      - ./be-for-frontend:/app
+      - /app/node_modules
     env_file:
       - ./be-for-frontend/.env
     networks:
@@ -51,8 +52,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 4002:4002
-    # volumes:
-    #   - ./be-board:/app
+    volumes:
+      - ./be-board:/app
+      - /app/node_modules
     env_file:
       - ./be-board/.env
     networks:
@@ -64,8 +66,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
-    # volumes:
-    #   - ./fe-web:/app
+    volumes:
+      - ./fe-web:/app
+      - /app/node_modules
     env_file:
       - ./fe-web/.env
     networks:
