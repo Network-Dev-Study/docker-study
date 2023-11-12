@@ -6,8 +6,8 @@ const port = 4000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const loggerInstance = axios.create({ baseURL: 'http://localhost:4001' });
-const boardInstance = axios.create({ baseURL: 'http://localhost:4002' });
+const loggerInstance = axios.create({ baseURL: process.env.BE_LOGGER_SERVICE });
+const boardInstance = axios.create({ baseURL: process.env.BE_BOARD_SERVICE });
 
 app.get('/board', async (req, res) => {
   await loggerInstance.post('/log', 'GET board list');
