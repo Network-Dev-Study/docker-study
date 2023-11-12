@@ -10,9 +10,8 @@ RUN npm install -g npm@10.2.3 && \
 # app stage
 FROM node:18.17.0 AS app
 
-ENTRYPOINT ["npm", "run", "start"]
+CMD ["npm", "run", "start"]
 
 WORKDIR /app
 COPY --from=build /build .
 COPY . .
-
