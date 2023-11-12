@@ -20,7 +20,7 @@ services:
     networks:
       - default
 
-  bff:
+  be-for-frontend:
     build:
       context: ./bff
       dockerfile: Dockerfile
@@ -31,7 +31,7 @@ services:
     networks:
       - default
 
-  logger:
+  be-logger:
     build:
       context: ./logger
       dockerfile: Dockerfile
@@ -42,7 +42,7 @@ services:
     networks:
       - default
 
-  be:
+  be-board:
     build:
       context: ./be
       dockerfile: Dockerfile
@@ -53,7 +53,7 @@ services:
     networks:
       - default
 
-  fe:
+  fe-web:
     build:
       context: ./fe
       dockerfile: Dockerfile
