@@ -51,6 +51,8 @@ services:
       - 4002:4002
     # volumes:
     #   - ./be-board:/app
+    env_file:
+      - ./be-board/.env
     networks:
       - default
 
