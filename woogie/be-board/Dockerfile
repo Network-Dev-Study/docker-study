@@ -1,4 +1,12 @@
-# Node.js를 기반으로 하는 공식 Node 이미지 사용
+# ===build===
+FROM node:16 AS builder
+
+WORKDIR /src
+
+COPY ./package*.json .
+RUN npm install
+
+# ===app===
 FROM node:16
 
 # 컨테이너를 실행할 때 사용할 명령 설정
@@ -11,9 +19,8 @@ WORKDIR /app
 RUN npm install -g ts-node
 RUN npm install -g nodemon
 
-# 앱 종속성 설치
-COPY ./package*.json .
-RUN npm install
+# build 단계에서 설치한 패키지 사용
+COPY --from=builder /src/node_modules/ /app/node_modules/
 
 # 앱 소스 코드 복사
 COPY . .
