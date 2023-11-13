@@ -1,17 +1,27 @@
-# Base image
-FROM python:3.9
+# Stage 1: Build
+FROM python:3.9 as builder
 
-# Command to run your application
-CMD ["flask", "run", "--host=0.0.0.0", "--debug"]
+WORKDIR /app
+COPY ./requirements.txt .
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
-# Set the working directory in the container
+COPY . .
+
+# Stage 2: Runtime
+FROM python:3.9-slim
+
 WORKDIR /app
 
-# Copy the requirements file into the container
-COPY ./requirements.txt .
+RUN pip install flask
 
-# Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
+COPY --from=builder /app /app
+COPY --from=builder /usr/local/lib/python3.9 /usr/local/lib/python3.9
 
-# Copy the current directory contents into the container at /app
-COPY . .
+# Set environment variables
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5000
+ENV FLASK_RUN_DEBUG=true
+
+CMD ["flask", "run"]
