@@ -4,7 +4,7 @@ export default class BaseService {
   private baseUrl: string;
 
   constructor() {
-    this.baseUrl = 'http://localhost:4000';
+    this.baseUrl = process.env.REACT_APP_BE_FOR_FRONTEND_SERVICE!;
   }
 
   protected config: AxiosRequestConfig = {
