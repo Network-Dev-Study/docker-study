@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  fe-web:
+    volumes:
+      - ./fe-web:/app  # 로컬 소스 코드 디렉토리와 컨테이너 내부의 /app 디렉토리를 공유
+    environment:
+      - NODE_ENV=development
+
+  be-for-frontend:
+    environment:
+      - FLASK_ENV=development
+    # command: ["npm", "run", "start"]
+
+  be-board:
+    environment:
+      - NODE_ENV=development
+    command: ["npm", "run", "start"]
+
+  be-logger:
+    environment:
+      - SPRING_PROFILES_ACTIVE=development # 개발 모드 활성화
+
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: woogie
