@@ -16,6 +16,7 @@ services:
       - "4100:5000"
     volumes:
       - ./be-for-frontend:/app
+      - /app/node_modules
 
   be-board:
     build:
@@ -23,6 +24,7 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - ./be-board:/app
+      - /app/node_modules
     ports:
       - 4000:4000
 
