@@ -10,7 +10,7 @@ services:
   be-for-frontend:
     environment:
       - FLASK_ENV=development
-    # command: ["npm", "run", "start"]
+      - FLASK_RUN_DEBUG=true
 
   be-board:
     environment:
