@@ -19,7 +19,7 @@ services:
 
   be-logger:
     environment:
-      - SPRING_PROFILES_ACTIVE=production # 개발 모드 활성화
+      - SPRING_PROFILES_ACTIVE=production
 
   mysql:
     environment:
