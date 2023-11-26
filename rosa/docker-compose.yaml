@@ -28,11 +28,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 4000:4000
-    healthcheck:
-      interval: 10s
-      timeout: 1s
-      retries: 3
-      start_period: 5s
     volumes:
       - ./be-for-frontend:/app
       - /app/node_modules
@@ -72,11 +67,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
-    healthcheck:
-      interval: 10s
-      timeout: 1s
-      retries: 3
-      start_period: 5s
     volumes:
       - ./fe-web:/app
       - /app/node_modules

@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  mysql:
+
+  be-for-frontend:
+    command: ["npm", "run", "start"]
+    healthcheck:
+      test: ["CMD", "node", "/utils/http-check.js", "http://localhost:4000/health"]
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 5s
+
+  be-logger:
+
+  be-board:
+    command: ["npm", "run", "start:dev"]
+    healthcheck:
+      test: ["CMD", "node", "/utils/http-check.js", "http://localhost:4002/health"]
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 5s
+
+  fe-web:
+    healthcheck:
+      test: ["CMD", "node", "/utils/http-check.js", "http://localhost:3000"]
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 5s
+
+networks:
+  default:
+    name: default_net
