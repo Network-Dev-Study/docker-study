@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  fe-web:
+    environment:
+      - NODE_ENV=production
+    command: ["serve", "-s", "build"]
+
+  be-for-frontend:
+    environment:
+      - FLASK_ENV=production
+
+  be-board:
+    environment:
+      - NODE_ENV=production
+    command: ["npm", "run", "start"]
+
+  be-logger:
+    environment:
+      - SPRING_PROFILES_ACTIVE=production
+
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: woogie

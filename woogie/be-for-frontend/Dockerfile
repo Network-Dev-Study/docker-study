@@ -22,6 +22,5 @@ COPY --from=builder /usr/local/lib/python3.9 /usr/local/lib/python3.9
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_RUN_PORT=5000
-ENV FLASK_RUN_DEBUG=true
 
 CMD ["flask", "run"]
