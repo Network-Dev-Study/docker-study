@@ -35,3 +35,8 @@
 * 언어별로 유틸리티 애플리케이션 생성 > node util/health-checker.js [api 주소를 받음]
 * 헬스체크
 * 디펜던시 체크
+
+## 4주차
+
+* reverse proxy
+* 애플리케이션 보완
