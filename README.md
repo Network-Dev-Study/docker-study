@@ -30,7 +30,7 @@
 * docker-compose 개발, 운영 나누기
 * 이미지 최적화
 
-## 도커 3주차
+## 3주차
 
 * 언어별로 유틸리티 애플리케이션 생성 > node util/health-checker.js [api 주소를 받음]
 * 헬스체크
