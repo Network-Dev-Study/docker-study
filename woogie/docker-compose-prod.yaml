@@ -2,8 +2,6 @@ version: '3.1'
 
 services:
   fe-web:
-    volumes:
-      - ./fe-web:/app  # 로컬 소스 코드 디렉토리와 컨테이너 내부의 /app 디렉토리를 공유
     environment:
       - NODE_ENV=production
     command: ["serve", "-s", "build"]
