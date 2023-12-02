@@ -7,7 +7,7 @@ COPY ./package*.json .
 RUN npm install
 
 # ===app===
-FROM node:18
+FROM node:18-alpine
 
 # 컨테이너를 실행할 때 사용할 명령 설정
 CMD ["npm", "start"]
