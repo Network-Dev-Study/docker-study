@@ -1,12 +1,19 @@
 version: '3.1'
 
 services:
+  nginx-proxy:
+    container_name: nginx-proxy
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    restart: always
+
   fe-web:
     build:
       context: ./fe-web
       dockerfile: ./Dockerfile  # React 앱을 빌드할 Dockerfile
-    ports:
-      - "3000:3000"  # React 개발 서버의 포트
 
   be-for-frontend:
     build:
