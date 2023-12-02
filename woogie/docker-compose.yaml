@@ -19,8 +19,6 @@ services:
     build:
       context: ./be-for-frontend
       dockerfile: ./Dockerfile
-    ports:
-      - "4100:5000"
     volumes:
       - ./be-for-frontend:/app
       - /app/node_modules
