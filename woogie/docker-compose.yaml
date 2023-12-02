@@ -30,8 +30,6 @@ services:
     volumes:
       - ./be-board:/app
       - /app/node_modules
-    ports:
-      - 4000:4000
     healthcheck:
       test: ["CMD", "node", "src/utils/healthcheck.util.mjs", "-t", "150"]
       interval: 5s
@@ -43,8 +41,6 @@ services:
     build:
       context: ./be-logger
       dockerfile: ./Dockerfile # Spring Boot 앱의 Dockerfile
-    ports:
-      - "4200:8080" # 호스트 포트와 컨테이너 포트 매핑
 
   mysql:
     container_name: mysql
