@@ -1,25 +1,35 @@
 version: '3.1'
 
 services:
+  nginx:
+  
   mysql:
 
   be-for-frontend:
+    depends_on:
+      - mysql
     command: ["npm", "run", "start:dev"]
     volumes:
       - ./be-for-frontend:/app
       - /app/node_modules
 
   be-logger:
+    depends_on:
+      - mysql
     # volumes:
     #   - ./be-logger:/app
 
   be-board:
+    depends_on:
+      - mysql
     command: ["npm", "run", "start:dev"]
     volumes:
       - ./be-board:/app
       - /app/node_modules
 
   fe-web:
+    depends_on:
+      - be-for-frontend
     command: ["npm", "run", "start"]
     volumes:
       - ./fe-web:/app
