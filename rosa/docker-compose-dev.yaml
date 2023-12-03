@@ -11,7 +11,7 @@ services:
     command: ["npm", "run", "start:dev"]
     volumes:
       - ./be-for-frontend:/app
-      - /app/node_modules
+      - ./be-for-frontend/node_modules:/app/node_modules
 
   be-logger:
     depends_on:
@@ -25,7 +25,7 @@ services:
     command: ["npm", "run", "start:dev"]
     volumes:
       - ./be-board:/app
-      - /app/node_modules
+      - ./be-board/node_modules:/app/node_modules
 
   fe-web:
     depends_on:
@@ -33,7 +33,7 @@ services:
     command: ["npm", "run", "start"]
     volumes:
       - ./fe-web:/app
-      - /app/node_modules
+      - ./fe-web/node_modules:/app/node_modules
 
 networks:
   default:
