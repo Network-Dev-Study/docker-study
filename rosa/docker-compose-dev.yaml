@@ -5,14 +5,25 @@ services:
 
   be-for-frontend:
     command: ["npm", "run", "start:dev"]
+    volumes:
+      - ./be-for-frontend:/app
+      - /app/node_modules
 
   be-logger:
+    # volumes:
+    #   - ./be-logger:/app
 
   be-board:
     command: ["npm", "run", "start:dev"]
+    volumes:
+      - ./be-board:/app
+      - /app/node_modules
 
   fe-web:
     command: ["npm", "run", "start"]
+    volumes:
+      - ./fe-web:/app
+      - /app/node_modules
 
 networks:
   default:
