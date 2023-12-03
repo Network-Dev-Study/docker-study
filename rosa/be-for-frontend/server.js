@@ -1,13 +1,19 @@
 const { default: axios } = require('axios');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = 4000;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const loggerInstance = axios.create({ baseURL: process.env.BE_LOGGER_SERVICE });
 const boardInstance = axios.create({ baseURL: process.env.BE_BOARD_SERVICE });
+
+app.get('/health', async (req, res) => {
+  return res.status(200).json({ status: 'ok' });
+});
 
 app.get('/board', async (req, res) => {
   await loggerInstance.post('/log', 'GET board list');
