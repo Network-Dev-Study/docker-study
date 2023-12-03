@@ -10,7 +10,7 @@ RUN npm install -g npm@10.2.3 && \
 # app stage
 FROM node:18.17.0 AS app
 
-CMD node /utils/http-check.js http://localhost:4000/hea && \
+CMD node /utils/http-check.js http://localhost:4000/health && \
     npm run start
 
 # http check utility
