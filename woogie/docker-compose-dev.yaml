@@ -18,9 +18,11 @@ services:
     command: ["npm", "run", "start:dev"]
 
   be-logger:
-    ports:
-      - "5005:5005" # 원격 디버깅을 위한 포트 개방
-    command: ["java", "-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n", "-jar", "/app/cube.jar"]
+    environment:
+      - SPRING_PROFILES_ACTIVE=development
+    # ports:
+    #   - "5005:5005" # 원격 디버깅을 위한 포트 개방
+    # command: ["java", "-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n", "-jar", "/app/cube.jar"]
 
   mysql:
     environment:

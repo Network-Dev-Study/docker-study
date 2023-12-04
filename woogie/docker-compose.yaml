@@ -1,19 +1,24 @@
 version: '3.1'
 
 services:
+  nginx-proxy:
+    container_name: nginx-proxy
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    restart: always
+
   fe-web:
     build:
       context: ./fe-web
       dockerfile: ./Dockerfile  # React 앱을 빌드할 Dockerfile
-    ports:
-      - "3000:3000"  # React 개발 서버의 포트
 
   be-for-frontend:
     build:
       context: ./be-for-frontend
       dockerfile: ./Dockerfile
-    ports:
-      - "4100:5000"
     volumes:
       - ./be-for-frontend:/app
       - /app/node_modules
@@ -25,8 +30,6 @@ services:
     volumes:
       - ./be-board:/app
       - /app/node_modules
-    ports:
-      - 4000:4000
     healthcheck:
       test: ["CMD", "node", "src/utils/healthcheck.util.mjs", "-t", "150"]
       interval: 5s
@@ -38,8 +41,6 @@ services:
     build:
       context: ./be-logger
       dockerfile: ./Dockerfile # Spring Boot 앱의 Dockerfile
-    ports:
-      - "4200:8080" # 호스트 포트와 컨테이너 포트 매핑
 
   mysql:
     container_name: mysql
@@ -54,6 +55,7 @@ services:
         "--collation-server=utf8mb4_bin"
       ]
     volumes:
+      - ./mysql/data:/var/lib/mysql
       - ./mysql/init:/docker-entrypoint-initdb.d
 
 networks:

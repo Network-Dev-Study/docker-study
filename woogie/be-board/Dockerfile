@@ -1,5 +1,5 @@
 # ===build===
-FROM node:16 AS builder
+FROM node:18 AS builder
 
 WORKDIR /src
 
@@ -7,7 +7,7 @@ COPY ./package*.json .
 RUN npm install
 
 # ===app===
-FROM node:16
+FROM node:18-alpine
 
 # 컨테이너를 실행할 때 사용할 명령 설정
 CMD ["npm", "start"]
