@@ -40,3 +40,10 @@
 
 * reverse proxy
 * 애플리케이션 보완
+
+## 5주차
+
+* HTTPS 설정 (Let’s encrypt)
+* production에서 FE build된 index.html 로 바꾸기
+* Nginx 헬스체크 ??
+* Jenkins 공부
