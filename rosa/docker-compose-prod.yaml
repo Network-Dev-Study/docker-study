@@ -22,6 +22,9 @@ services:
       start_period: 5s
 
   fe-web:
+    build:
+      context: ./fe-web
+      dockerfile: Dockerfile.prod
     healthcheck:
       test: ["CMD", "node", "/utils/http-check.js", "http://localhost:3000"]
       interval: 10s

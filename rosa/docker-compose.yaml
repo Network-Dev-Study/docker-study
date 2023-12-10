@@ -67,11 +67,6 @@ services:
       - default
 
   fe-web:
-    build:
-      context: ./fe-web
-      dockerfile: Dockerfile
-    expose:
-      - 3000
     env_file:
       - ./fe-web/.env
     networks:

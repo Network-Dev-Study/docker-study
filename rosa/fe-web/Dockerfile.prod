@@ -1,0 +1,27 @@
+# build stage
+FROM node:18.17.0 AS build
+
+WORKDIR /app
+COPY ./package.json .
+
+RUN npm install -g npm@10.2.3 && \
+    npm install
+
+COPY . .
+RUN npm run build
+
+# app stage
+FROM nginx AS app
+
+# CMD node /utils/http-check.js http://localhost:4000/health && \
+#     npm run start
+
+# http check utility
+# WORKDIR /utils
+# COPY ./utils/http-check.js .
+
+EXPOSE 80
+
+WORKDIR /app
+COPY --from=build /app/build /usr/share/nginx/html
+COPY ./nginx/conf/nginx.conf /etc/nginx/conf.d

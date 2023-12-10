@@ -28,9 +28,14 @@ services:
       - ./be-board/node_modules:/app/node_modules
 
   fe-web:
+    build:
+      context: ./fe-web
+      dockerfile: Dockerfile.dev
     depends_on:
       - be-for-frontend
     command: ["npm", "run", "start"]
+    expose:
+      - 3000
     volumes:
       - ./fe-web:/app
       - ./fe-web/node_modules:/app/node_modules
