@@ -1,18 +1,44 @@
 version: '3.1'
 
 services:
+  nginx:
+  
   mysql:
 
   be-for-frontend:
+    depends_on:
+      - mysql
     command: ["npm", "run", "start:dev"]
+    volumes:
+      - ./be-for-frontend:/app
+      - ./be-for-frontend/node_modules:/app/node_modules
 
   be-logger:
+    depends_on:
+      - mysql
+    # volumes:
+    #   - ./be-logger:/app
 
   be-board:
+    depends_on:
+      - mysql
     command: ["npm", "run", "start:dev"]
+    volumes:
+      - ./be-board:/app
+      - ./be-board/node_modules:/app/node_modules
 
   fe-web:
+    build:
+      context: ./fe-web
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - be-for-frontend
     command: ["npm", "run", "start"]
+    expose:
+      - 3000
+    volumes:
+      - ./fe-web:/app
+      - ./fe-web/node_modules:/app/node_modules
 
 networks:
   default:

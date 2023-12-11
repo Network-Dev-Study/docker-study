@@ -1,3 +1,6 @@
+# image build
+source "$(pwd)/scripts/dev-build.sh"
+
 # data 디렉토리 생성
 source "$(pwd)/scripts/create-data-directory.sh"
 
