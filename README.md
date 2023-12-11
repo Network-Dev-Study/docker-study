@@ -45,5 +45,10 @@
 
 * HTTPS 설정 (Let’s encrypt)
 * production에서 FE build된 index.html 로 바꾸기
-* Nginx 헬스체크 ??
+* Nginx 헬스체크
+* Jenkins 공부
+
+## 6주차
+
+* HTTPS 설정 (Let’s encrypt)
 * Jenkins 공부
