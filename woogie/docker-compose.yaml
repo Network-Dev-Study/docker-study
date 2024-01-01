@@ -6,8 +6,9 @@ services:
     image: nginx:latest
     ports:
       - "80:80"
+      - "443:443"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/config:/etc/nginx/conf.d
     restart: always
 
   fe-web:
@@ -21,7 +22,6 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - ./be-for-frontend:/app
-      - /app/node_modules
 
   be-board:
     build:
@@ -29,7 +29,7 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - ./be-board:/app
-      - /app/node_modules
+      - be-board-node_modules:/app/node_modules
     healthcheck:
       test: ["CMD", "node", "src/utils/healthcheck.util.mjs", "-t", "150"]
       interval: 5s
@@ -61,3 +61,6 @@ services:
 networks:
   default:
     name: docker-study
+
+volumes:
+  be-board-node_modules:
